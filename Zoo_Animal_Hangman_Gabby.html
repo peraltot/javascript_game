@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pick an Animal or Hang!!!!!</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- We need to bring in the bootstrap CSS -->
+
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style2.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2> ZOO ANIMALS!!!!!!</h2>
+                        <div id="game1">
+                            <h1>Press any key to start playing!</h1>
+                            <h1>Guess the Zoo Animal!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p><img src="assets\zooanimals.png"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="game2">
+                        </div>
+                        <!-- <img id="myImg" src="assets/Jacob.jpg" width="300" height="400"> -->
+                        <img id="myImg" src="assets/Gabby.jpg" width="300" height="400">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        // Creates an array that lists out all of the options ().
+        var animals = ["lion", "tiger", "monkey", "owl", "flamingo", "bat", "bear",
+            "camel", "rhino", "goat", "penguin"
+        ];
+        var hangman = ["|", "|", "|", "|", "|", "|", "|", "|"];
+        var letters = [];
+        var body = 0;
+        var gallow = [];
+
+
+        // Randomly chooses a choice from the options array. This is the Computer's guess.
+
+        var word = animals[Math.floor(Math.random() * animals.length)];
+        var answerArray = [];
+
+        for (var i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+
+        alert("The zoo aminal has " + word.length + " letters");
+
+        var remainingLetters = word.length;
+
+        document.onkeyup = function (event) {
+            var guess = event.key;
+
+            // The game loop
+            while (remainingLetters > 0) {
+
+                answerArray.join(" ");
+
+                for (var i = 0; i < word.length; i++) {
+
+                    if (word.includes(guess)) {
+                        var indexOfGuess = word.indexOf(guess);
+                        answerArray[indexOfGuess] = guess;
+                    }
+                    break
+                }
+
+                if (word.includes(guess) === false) {
+                    gallow.push(hangman[body]);
+                    body++;
+                    remainingLetters--;
+                }
+                break
+            }
+
+            var html1 =
+
+                "<div id=boxes>" +
+                "<p>" + answerArray + "</p>" +
+                "</div>";
+
+            // Set the inner HTML contents of the #game div to our html string
+
+            document.querySelector("#game1").innerHTML = html1;
+
+            var html2 =
+
+                "<h1>You chose: " + guess + "</h1>" +
+
+                "<h1> You have " + remainingLetters + " turns left!!! </h1>" +
+
+                "<h1>The Hangman:</h1>" +
+
+                "<div id=boxes2>" +
+                "<p> " + gallow + "</p>"
+            "</div>";
+
+
+            document.querySelector("#game2").innerHTML = html2;
+
+        };
+    </script>
+
+
+</body>
+
+</html>
