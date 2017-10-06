@@ -132,7 +132,7 @@
         var animals = ["lion", "tiger", "monkey", "owl", "flamingo", "bat", "bear",
             "camel", "rhino", "goat", "penguin"
         ];
-        var hangman = ["|", "|", "|", "|", "|", "|", "|"];
+        var hangman = ["|", "|", "|", "|", "|", "|", "|","|"];
         // var hangman = {HEAD:"assets/Jacob.jpg", BODY:"assets/Jacob.jpg", LEFTARM:"assets/Jacob.jpg", RIGHTARM:"assets/Jacob.jpg", LEFTLEG:"assets/Jacob.jpg", RIGHTLEG:"assets/Jacob.jpg"};
         var letters = [];
         var body = 0;
@@ -152,11 +152,12 @@
         alert("The zoo aminal has " + word.length + " letters");
         // window.confirm("Are you ready to pick your first letter?");
 
+var remainingLetters = word.length;
 
         document.onkeyup = function (event) {
             var guess = event.key;
 
-            var remainingLetters = word.length;
+            
 
             // The game loop
             while (remainingLetters > 0) {
@@ -169,7 +170,7 @@
                         var indexOfGuess = word.indexOf(guess);
                         // if (word[i] === guess) {
                         answerArray[indexOfGuess] = guess;
-                        remainingLetters--;
+                        // remainingLetters--;
                         // } else {
                         //     gallow.push(hangman[body]);
                         //     // body++
@@ -183,6 +184,7 @@
                     remainingLetters--;
                 }
                 break
+                // remainingLetters--;
             }
 
             var html1 =
@@ -199,7 +201,7 @@
 
                 "<h1>You chose: " + guess + "</h1>" +
 
-                "<h1>You chose: " + jake + "</h1>" +
+                "<h1> You have " + remainingLetters + " turns left!!! </h1>" +
 
                 "<h1>The Hangman:</h1>" +
 
