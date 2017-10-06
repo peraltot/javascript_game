@@ -40,11 +40,7 @@
     <div class="container">
 
         <div class="row">
-
-            <div class="col-lg-12">
-
-                <!-- The content in this div gets wrapped in a panel -->
-
+            <div class="col-lg-4">
                 <div class="panel panel-default">
 
                     <div class="panel-body">
@@ -54,17 +50,37 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <p><img src="assets\zooanimals.png"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+
+                        <div id="game2">
+                        </div>
+
+                        <img id="myImg" src="assets/Jacob.jpg" width="300" height="400">
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
     <div class="container">
 
         <div class="row">
-
-            <div class="col-lg-5">
-
-                <p><img src="assets\zooanimals.png"></p>
-
-            </div>
 
             <div class="col-lg-4">
 
@@ -82,44 +98,8 @@
 
                 </div>
             </div>
-
-
         </div>
     </div>
-    </div>
-
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-4">
-
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-
-                        <div id="game2">
-                        </div>
-
-                        <img id="myImg" src="assets/Jacob.jpg" width="300" height="400">
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-                <!-- <div id="game2">
-
-                    <div class="panel panel-default">
-
-                        <div class="panel-body">
-
-                        </div>
-                    </div> -->
-
-            </div>
-        </div>
 
     </div>
     </div>
@@ -132,7 +112,7 @@
         var animals = ["lion", "tiger", "monkey", "owl", "flamingo", "bat", "bear",
             "camel", "rhino", "goat", "penguin"
         ];
-        var hangman = ["|", "|", "|", "|", "|", "|", "|","|"];
+        var hangman = ["|", "|", "|", "|", "|", "|", "|", "|"];
         // var hangman = {HEAD:"assets/Jacob.jpg", BODY:"assets/Jacob.jpg", LEFTARM:"assets/Jacob.jpg", RIGHTARM:"assets/Jacob.jpg", LEFTLEG:"assets/Jacob.jpg", RIGHTLEG:"assets/Jacob.jpg"};
         var letters = [];
         var body = 0;
@@ -152,12 +132,12 @@
         alert("The zoo aminal has " + word.length + " letters");
         // window.confirm("Are you ready to pick your first letter?");
 
-var remainingLetters = word.length;
+        var remainingLetters = word.length;
 
         document.onkeyup = function (event) {
             var guess = event.key;
 
-            
+
 
             // The game loop
             while (remainingLetters > 0) {
