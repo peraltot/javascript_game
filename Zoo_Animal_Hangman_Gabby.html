@@ -57,6 +57,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p><img src="assets\zooanimals.png"></p>
+                        <button onclick="myFunction()">TRY AGAIN!</button>
                     </div>
                 </div>
             </div>
@@ -77,6 +78,11 @@
 
 
     <script type="text/javascript">
+
+        function myFunction() {
+            location.reload();
+        }
+
         // Creates an array that lists out all of the options ().
         var animals = ["lion", "tiger", "monkey", "owl", "flamingo", "bat", "bear",
             "camel", "rhino", "goat", "penguin"
@@ -85,7 +91,6 @@
         var letters = [];
         var body = 0;
         var gallow = [];
-
 
         // Randomly chooses a choice from the options array. This is the Computer's guess.
 
