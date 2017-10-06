@@ -39,19 +39,21 @@
 
 	#boxes2 {
 		background: #ffffff;
-		padding: 10px;
+		/* padding: 10px; */
+		float: clear;
 		box-sizing: border-box;
 		border-style: #cccccc;
-		margin-left: 0%;
+		margin-left: 50%;
 		/* margin-right: 50%; */
-		width: 145px;
+		width: 2px;
 		height: fit-content;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 30px;
+		font-weight: 900;
         letter-spacing: 5px;
         /* color: #ffffff; */
-        color: #111010;
+        color: #4B0606;
 		/* max-width: 4px; */
 		word-break: break-all;
 	}
