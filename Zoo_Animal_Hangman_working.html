@@ -94,6 +94,17 @@
         <div class="row">
 
             <div class="col-lg-4">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <img id="myImg" src="assets/Jacob.jpg" width="300" height="400">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
                 <div id="game2">
 
                     <div class="panel panel-default">
@@ -157,15 +168,17 @@
                         //     gallow.push(hangman[body]);
                         //     // body++
                     }
+                    break
                 }
 
-                if (word.includes(guess)) {
+                if (word.includes(guess) === false) {
                     gallow.push(hangman[body]);
                     body++;
                     remainingLetters--;
                 }
-
+                break
             }
+
             var html1 =
 
                 "<div id=boxes>" +
@@ -194,7 +207,7 @@
             // }
         };
     </script>
-    <!-- <img id="myImg" src="assets/Jacob.jpg" width="107" height="98">; -->
+
 </body>
 
 </html>
