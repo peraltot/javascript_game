@@ -114,9 +114,8 @@
     <script type="text/javascript">
         // Creates an array that lists out all of the options ().
         // var animals = ["lion"];
-        var animals = ["lion", "tiger", "monkey", "giraffe", "alligator", "gorilla", "panda",
-            "elephant", "rhino",
-            "penguin"
+        var animals = ["lion", "tiger", "monkey", "owl", "flamingo", "bat", "bear",
+            "camel", "rhino", "goat", "penguin"
         ];
         var hangman = ["HEAD", "NECK", "LARM", "BODY", "RARM", "LLEG", "RLEG"];
         // var hangman = {HEAD:"assets/Jacob.jpg", BODY:"assets/Jacob.jpg", LEFTARM:"assets/Jacob.jpg", RIGHTARM:"assets/Jacob.jpg", LEFTLEG:"assets/Jacob.jpg", RIGHTLEG:"assets/Jacob.jpg"};
@@ -126,10 +125,8 @@
 
 
         // Randomly chooses a choice from the options array. This is the Computer's guess.
+
         var word = animals[Math.floor(Math.random() * animals.length)];
-
-        
-
         var answerArray = [];
 
         for (var i = 0; i < word.length; i++) {
@@ -141,6 +138,7 @@
 
         document.onkeyup = function (event) {
             var guess = event.key;
+
             var remainingLetters = word.length;
 
             // The game loop
@@ -148,60 +146,55 @@
 
                 answerArray.join(" ");
 
-                // if (word.includes(guess)) {
+                for (var i = 0; i < word.length; i++) {
 
-                for (var i = 0; i < hangman.length; i++) {
-
-                    if (word[i] === guess) {
-                        answerArray[i] = guess;
+                    if (word.includes(guess)) {
+                        var indexOfGuess = word.indexOf(guess);
+                        // if (word[i] === guess) {
+                        answerArray[indexOfGuess] = guess;
                         remainingLetters--;
-                        // letters.push(guess);
-                        // answerArray.join(" ")
-                        // } else if (length.gallow < length.hangman) {
-
-                        // gallow=hangman[body]
-                    } else {
-                        // alert("Your going to hang in " + j + " more guesses");
-                        gallow = hangman[body];
-                        body++
-                        // gallow.join("")
+                        // } else {
+                        //     gallow.push(hangman[body]);
+                        //     // body++
                     }
+                }
 
-
-                    var html1 =
-
-                        "<div id=boxes>" +
-                        "<p>" + answerArray + "</p>" +
-                        "</div>";
-
-                    // Set the inner HTML contents of the #game div to our html string
-
-                    document.querySelector("#game1").innerHTML = html1;
-
-                    var html2 =
-
-                        "<h1>You chose: " + guess + "</h1>" +
-
-                        // "<p>You word: " + letters + "</p>" +
-
-                        // "<h1> " + letters + "</h1>" +
-
-
-                        "<h1>The Hangman:</h1>" +
-
-                        "<div id=boxes2>" +
-                        "<p> " + gallow + "</p>"
-                    "</div>";
-
-
-                    document.querySelector("#game2").innerHTML = html2;
-
+                if (word.includes(guess)) {
+                    gallow.push(hangman[body]);
+                    body++;
+                    remainingLetters--;
                 }
 
             }
+            var html1 =
+
+                "<div id=boxes>" +
+                "<p>" + answerArray + "</p>" +
+                "</div>";
+
+            // Set the inner HTML contents of the #game div to our html string
+
+            document.querySelector("#game1").innerHTML = html1;
+
+            var html2 =
+
+                "<h1>You chose: " + guess + "</h1>" +
+
+                "<h1>The Hangman:</h1>" +
+
+                "<div id=boxes2>" +
+                "<p> " + gallow + "</p>"
+            "</div>";
+
+
+            document.querySelector("#game2").innerHTML = html2;
+
+            // }
+
+            // }
         };
     </script>
-    <!-- <img id="myImg" src="assets/Jacob.jpg" width="107" height="98"> -->
+    <!-- <img id="myImg" src="assets/Jacob.jpg" width="107" height="98">; -->
 </body>
 
 </html>
